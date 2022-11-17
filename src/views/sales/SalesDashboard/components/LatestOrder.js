@@ -40,7 +40,7 @@ const OrderColumn = ({ row }) => {
   );
 };
 
-const LatestOrder = ({ data = [], className, fetchFilterData }) => {
+const LatestOrder = ({ data = [], className }) => {
   const columns = useMemo(
     () => [
       {
@@ -80,34 +80,6 @@ const LatestOrder = ({ data = [], className, fetchFilterData }) => {
     <Card className={className}>
       <div className="flex items-center justify-between mb-6">
         <h4>Users</h4>
-        <Button
-          size="sm"
-          variant="solid"
-          onClick={() => fetchFilterData({ order: "ASC" })}
-        >
-          Filter By A to Z
-        </Button>
-        <Button
-          size="sm"
-          variant="solid"
-          onClick={() => fetchFilterData({ order: "DESC" })}
-        >
-          Filter By Z to A
-        </Button>
-        <Button
-          size="sm"
-          variant="solid"
-          onClick={() => fetchFilterData({ order: "ASC", filter: "Female" })}
-        >
-          Filter By Female
-        </Button>
-        <Button
-          size="sm"
-          variant="solid"
-          onClick={() => fetchFilterData({ order: "ASC", filter: "Male" })}
-        >
-          Filter By Male
-        </Button>
       </div>
       <Table {...getTableProps()}>
         <THead>

@@ -5,21 +5,15 @@ import SalesReport from "./SalesReport";
 import SalesByCategories from "./SalesByCategories";
 import LatestOrder from "./LatestOrder";
 import TopProduct from "./TopProduct";
-import { getSalesDashboardData } from "../store/dataSlice";
+import { setSalaryData } from "../store/dataSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { apiGetSalaries } from "services/SalariesServices";
 
 const SalesDashboardBody = () => {
   const dispatch = useDispatch();
-  const [SalaryData, setSalaryData] = useState([]);
+  //   const [SalaryData, setSalaryData] = useState([]);
 
-  const {
-    statisticData,
-    salesReportData,
-    topProductsData,
-    latestOrderData,
-    salesByCategoriesData,
-  } = useSelector((state) => state.salesDashboard.data.dashboardData);
+  const data = useSelector((state) => state.salesDashboard.data);
   const loading = useSelector((state) => state.salesDashboard.data.loading);
 
   useEffect(() => {
@@ -28,27 +22,13 @@ const SalesDashboardBody = () => {
   }, []);
 
   const fetchData = async () => {
-    const response = await apiGetSalaries({ order: "ASC" });
-    setSalaryData(response.data?.data);
+    const reponse = await apiGetSalaries({ order: "ASC" });
+    console.log(reponse?.data?.data);
+    dispatch(setSalaryData(reponse?.data?.data));
   };
-  const fetchFilterData = async (body) => {
-    const response = await apiGetSalaries(body);
-    setSalaryData(response.data?.data);
-  };
-  const MaleGenderSalary = SalaryData?.map((salary) => {
-    if (salary.gender === "Male") {
-      return parseInt(salary.salary);
-    }
-  });
-  const FeMaleGenderSalary = SalaryData?.map((salary) => {
-    if (salary.gender === "Female") {
-      return parseInt(salary.salary);
-    }
-  });
-  console.log(MaleGenderSalary);
+  console.log(data);
   return (
     <Loading loading={false}>
-      <Statistic data={statisticData} />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <SalesReport
           data={{
@@ -83,11 +63,7 @@ const SalesDashboardBody = () => {
         />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1">
-        <LatestOrder
-          data={SalaryData}
-          className="lg:col-span-3"
-          fetchFilterData={fetchFilterData}
-        />
+        <LatestOrder data={data?.salarydata} className="lg:col-span-3" />
       </div>
     </Loading>
   );

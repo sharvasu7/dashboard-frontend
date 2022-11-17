@@ -10,7 +10,7 @@ const unauthorizedCode = [401];
 
 const BaseService = axios.create({
   timeout: 60000,
-  baseURL: "http://localhost:4000",
+  baseURL: "https://dashboard-test-backend.herokuapp.com",
 });
 
 export default BaseService;
