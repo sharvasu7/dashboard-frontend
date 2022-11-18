@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Loading } from "components/shared";
+import { Chart, Loading } from "components/shared";
 import Statistic from "./Statistic";
 import SalesReport from "./SalesReport";
 import SalesByCategories from "./SalesByCategories";
@@ -44,7 +44,6 @@ const SalesDashboardBody = () => {
             ],
             categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
           }}
-          className="col-span-2"
         />
         <SalesReport
           data={{
@@ -60,6 +59,14 @@ const SalesDashboardBody = () => {
             ],
             categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
           }}
+          type="bar"
+        />
+        <SalesReport
+          data={{
+            series: [44, 55, 41, 17, 15],
+            categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
+          }}
+          type="donut"
         />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1">

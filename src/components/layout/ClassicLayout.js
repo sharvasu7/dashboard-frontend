@@ -12,12 +12,11 @@ import View from 'views'
 
 const HeaderActionsStart = () => {
 	return (
-		<>
-			<MobileNav />
-			<SideNavToggle />
-			<Search />
-		</>
-	)
+    <>
+      <SideNavToggle />
+      <Search />
+    </>
+  );
 }
 
 const HeaderActionsEnd = () => {

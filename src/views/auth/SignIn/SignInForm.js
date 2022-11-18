@@ -41,7 +41,7 @@ const SignInForm = (props) => {
     if (result.status === "failed") {
       setMessage(result.message);
     }
-    toast.success("Signin Successfully");
+    toast.success("Welcome to elstar");
     setSubmitting(false);
   };
 
@@ -54,8 +54,8 @@ const SignInForm = (props) => {
       )}
       <Formik
         initialValues={{
-          userName: "admin",
-          password: "123Qwe",
+          userName: "akkijazz",
+          password: "akshay1232",
           rememberMe: true,
         }}
         validationSchema={validationSchema}
@@ -95,15 +95,7 @@ const SignInForm = (props) => {
                   component={PasswordInput}
                 />
               </FormItem>
-              <div className="flex justify-between mb-6">
-                <Field
-                  className="mb-0"
-                  name="rememberMe"
-                  component={Checkbox}
-                  children="Remember Me"
-                />
-                <ActionLink to={forgotPasswordUrl}>Forgot Password?</ActionLink>
-              </div>
+
               <Button
                 block
                 loading={isSubmitting}
@@ -112,10 +104,6 @@ const SignInForm = (props) => {
               >
                 {isSubmitting ? "Signing in..." : "Sign In"}
               </Button>
-              <div className="mt-4 text-center">
-                <span>Don't have an account yet? </span>
-                <ActionLink to={signUpUrl}>Sign up</ActionLink>
-              </div>
             </FormContainer>
           </Form>
         )}

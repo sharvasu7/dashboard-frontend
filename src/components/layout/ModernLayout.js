@@ -11,25 +11,21 @@ import SideNav from 'components/template/SideNav'
 import View from 'views'
 
 const HeaderActionsStart = () => {
-	return (
-		<>
-			<MobileNav />
-			<SideNavToggle />
-			<Search />
-		</>
-	)
-}
+  return (
+    <>
+      <MobileNav />
+      <SideNavToggle />
+    </>
+  );
+};
 
 const HeaderActionsEnd = () => {
-	return (
-		<>
-			<LanguageSelector />
-			<Notification />
-			<SidePanel />
-			<UserDropdown hoverable={false} />
-		</>
-	)
-}
+  return (
+    <>
+      <UserDropdown hoverable={false} />
+    </>
+  );
+};
 
 const ModernLayout = props => {
 	return (

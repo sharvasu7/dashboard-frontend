@@ -153,7 +153,7 @@ const SideNav = () => {
             />
           </div>
           {sideNavCollapse ? (
-            <>{menuContent}</>
+            ""
           ) : (
             <div className="side-nav-content">
               <ScrollBar autoHide direction={direction}>
