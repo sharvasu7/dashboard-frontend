@@ -31,7 +31,7 @@ const SignUpForm = (props) => {
   const [message, setMessage] = useTimeOutMessage();
 
   const onSignUp = async (values, setSubmitting) => {
-    const { userName, password, email } = values;
+    const { userName, password } = values;
     setSubmitting(true);
     try {
       const resp = await apiSignUp({

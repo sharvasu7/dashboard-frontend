@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button } from "components/ui";
+import { Card } from "components/ui";
 import { Chart } from "components/shared";
 
 const SalesReport = ({ className, data = {}, type }) => {

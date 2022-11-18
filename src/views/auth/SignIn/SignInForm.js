@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Input,
-  Button,
-  Checkbox,
-  FormItem,
-  FormContainer,
-  Alert,
-} from "components/ui";
-import { PasswordInput, ActionLink } from "components/shared";
+import { Input, Button, FormItem, FormContainer, Alert } from "components/ui";
+import { PasswordInput } from "components/shared";
 import useTimeOutMessage from "utils/hooks/useTimeOutMessage";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
@@ -21,12 +14,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const SignInForm = (props) => {
-  const {
-    disableSubmit = false,
-    className,
-    forgotPasswordUrl = "/forgot-password",
-    signUpUrl = "/sign-up",
-  } = props;
+  const { disableSubmit = false, className } = props;
 
   const [message, setMessage] = useTimeOutMessage();
 

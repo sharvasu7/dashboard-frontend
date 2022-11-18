@@ -1,26 +1,25 @@
 import React, { useMemo, useCallback } from "react";
-import { Card, Button, Table, Badge } from "components/ui";
+import { Card, Table } from "components/ui";
 import useThemeClass from "utils/hooks/useThemeClass";
 import { useTable } from "react-table";
 import { useNavigate } from "react-router-dom";
-import NumberFormat from "react-number-format";
-import dayjs from "dayjs";
+
 
 const { Tr, Td, TBody, THead, Th } = Table;
 
-const orderStatusColor = {
-  0: {
-    label: "Paid",
-    dotClass: "bg-emerald-500",
-    textClass: "text-emerald-500",
-  },
-  1: {
-    label: "Pending",
-    dotClass: "bg-amber-500",
-    textClass: "text-amber-500",
-  },
-  2: { label: "Failed", dotClass: "bg-red-500", textClass: "text-red-500" },
-};
+// const orderStatusColor = {
+//   0: {
+//     label: "Paid",
+//     dotClass: "bg-emerald-500",
+//     textClass: "text-emerald-500",
+//   },
+//   1: {
+//     label: "Pending",
+//     dotClass: "bg-amber-500",
+//     textClass: "text-amber-500",
+//   },
+//   2: { label: "Failed", dotClass: "bg-red-500", textClass: "text-red-500" },
+// };
 
 const OrderColumn = ({ row }) => {
   const { textTheme } = useThemeClass();

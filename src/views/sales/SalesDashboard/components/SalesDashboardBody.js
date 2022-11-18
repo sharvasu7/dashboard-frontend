@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Chart, Loading } from "components/shared";
-import Statistic from "./Statistic";
+import React, { useEffect } from "react";
+import { Loading } from "components/shared";
 import SalesReport from "./SalesReport";
-import SalesByCategories from "./SalesByCategories";
 import LatestOrder from "./LatestOrder";
-import TopProduct from "./TopProduct";
 import { setSalaryData } from "../store/dataSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { apiGetSalaries } from "services/SalariesServices";
@@ -14,7 +11,6 @@ const SalesDashboardBody = () => {
   //   const [SalaryData, setSalaryData] = useState([]);
 
   const data = useSelector((state) => state.salesDashboard.data);
-  const loading = useSelector((state) => state.salesDashboard.data.loading);
 
   useEffect(() => {
     fetchData();

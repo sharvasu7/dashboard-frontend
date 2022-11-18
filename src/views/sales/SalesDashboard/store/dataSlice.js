@@ -1,5 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { apiGetSalaries } from "services/SalariesServices";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { apiGetSalesDashboardData } from "services/SalesService";
 
 export const getSalesDashboardData = createAsyncThunk(
@@ -37,4 +36,4 @@ const dataSlice = createSlice({
   },
 });
 export const { setSalaryData } = dataSlice.actions;
-export default dataSlice.reducer
+export default dataSlice.reducer;
