@@ -70,6 +70,7 @@ const SideNav = () => {
         id="vehicle1"
         name="vehicle1"
         value="Bike"
+        defaultChecked={true}
         onChange={() => SetFilter({ order: "ASC" })}
       />
       <label for="vehicle1" style={{ fontSize: 20 }}>

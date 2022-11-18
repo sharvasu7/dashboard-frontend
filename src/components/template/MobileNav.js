@@ -1,12 +1,12 @@
-import React, { useState, Suspense, lazy } from 'react'
-import classNames from 'classnames'
-import { Drawer } from 'components/ui'
+import React, { useState, Suspense } from "react";
+import classNames from "classnames";
+import { Drawer } from "components/ui";
 import {
-	NAV_MODE_THEMED, 
-	NAV_MODE_TRANSPARENT,
-	DIR_RTL,
-} from 'constants/theme.constant'
-import withHeaderItem from 'utils/hoc/withHeaderItem'
+  NAV_MODE_THEMED,
+  NAV_MODE_TRANSPARENT,
+  DIR_RTL,
+} from "constants/theme.constant";
+import withHeaderItem from "utils/hoc/withHeaderItem";
 import { NavToggle } from "components/shared";
 import useResponsive from "utils/hooks/useResponsive";
 import { useSelector } from "react-redux";
@@ -57,6 +57,7 @@ const MobileNav = () => {
         id="vehicle1"
         name="vehicle1"
         value="Bike"
+        defaultChecked={true}
         onChange={() => SetFilter({ order: "ASC" })}
       />
       <label for="vehicle1" style={{ fontSize: 20 }}>
@@ -137,4 +138,4 @@ const MobileNav = () => {
   );
 };
 
-export default MobileNav
+export default MobileNav;

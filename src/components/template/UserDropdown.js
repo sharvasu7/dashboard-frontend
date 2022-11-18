@@ -30,7 +30,6 @@ export const UserDropdown = ({ className }) => {
         renderTitle={UserAvatar}
         placement="bottom-end"
       >
-        <Dropdown.Item variant="divider" />
         <Dropdown.Item onClick={signOut} eventKey="Sign Out" className="gap-2">
           <span className="text-xl opacity-50">
             <HiOutlineLogout />
