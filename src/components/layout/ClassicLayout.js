@@ -1,34 +1,31 @@
 import React from 'react'
 import Header from 'components/template/Header'
 import SideNavToggle from 'components/template/SideNavToggle'
-import Search from 'components/template/Search'
-import LanguageSelector from 'components/template/LanguageSelector'
-import Notification from 'components/template/Notification'
-import SidePanel from 'components/template/SidePanel'
-import MobileNav from 'components/template/MobileNav'
-import UserDropdown from 'components/template/UserDropdown'
-import SideNav from 'components/template/SideNav'
-import View from 'views'
+import Search from "components/template/Search";
+import Notification from "components/template/Notification";
+import SidePanel from "components/template/SidePanel";
+import UserDropdown from "components/template/UserDropdown";
+import SideNav from "components/template/SideNav";
+import View from "views";
 
 const HeaderActionsStart = () => {
-	return (
+  return (
     <>
       <SideNavToggle />
       <Search />
     </>
   );
-}
+};
 
 const HeaderActionsEnd = () => {
-	return (
-		<>
-			<LanguageSelector />
-			<Notification />
-			<SidePanel />
-			<UserDropdown hoverable={false} />
-		</>
-	)
-}
+  return (
+    <>
+      <Notification />
+      <SidePanel />
+      <UserDropdown hoverable={false} />
+    </>
+  );
+};
 
 const ClassicLayout = props => {
 	return (

@@ -6,16 +6,9 @@ import store, { persistor } from "./store";
 import Theme from "components/template/Theme";
 import Layout from "components/layout";
 import history from "./history";
-import mockServer from "./mock";
-import "./locales";
+// import "./locales";
 
-const environment = process.env.NODE_ENV;
-
-// if (environment !== 'production' && appConfig.enableMock) {
-// 	mockServer({ environment })
-// }
-
-// mockServer({ environment })
+ 
 
 function App() {
   return (
