@@ -2,35 +2,28 @@ import React from 'react'
 import { Avatar, Dropdown } from 'components/ui'
 import withHeaderItem from 'utils/hoc/withHeaderItem'
 import useAuth from 'utils/hooks/useAuth'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
-import classNames from 'classnames'
-import { HiOutlineUser, HiOutlineCog, HiOutlineLogout } from 'react-icons/hi'
-import { FiActivity } from 'react-icons/fi'
-
-const dropdownItemList = [
-	{ label: 'Profile', path: '/app/account/settings/profile', icon: <HiOutlineUser /> },
-	{ label: 'Account Setting', path: '/app/account/settings/profile', icon: <HiOutlineCog /> },
-	{ label: 'Activity Log', path: '/app/account/activity-log', icon: <FiActivity /> },
-]
+import { useSelector } from "react-redux";
+import classNames from "classnames";
+import { HiOutlineLogout } from "react-icons/hi";
 
 export const UserDropdown = ({ className }) => {
+  const { avatar, userName, authority } = useSelector(
+    (state) => state.auth.user
+  );
 
-	const { avatar, userName, authority, email } = useSelector((state) => state.auth.user)
+  const { signOut } = useAuth();
 
-	const { signOut } = useAuth()
+  const UserAvatar = (
+    <div className={classNames(className, "flex items-center gap-2")}>
+      <Avatar size={32} shape="circle" src={avatar} />
+      <div className="hidden md:block">
+        <div className="text-xs capitalize">{authority[0] || "guest"}</div>
+        <div className="font-bold">{userName}</div>
+      </div>
+    </div>
+  );
 
-	const UserAvatar = (
-		<div className={classNames(className, 'flex items-center gap-2')}>
-			<Avatar size={32} shape="circle" src={avatar} />
-			<div className="hidden md:block">
-				<div className="text-xs capitalize">{authority[0] || 'guest'}</div>
-				<div className="font-bold">{userName}</div>
-			</div>
-		</div>
-	)
-
-	return (
+  return (
     <div>
       <Dropdown
         menuStyle={{ minWidth: 240 }}
@@ -47,6 +40,6 @@ export const UserDropdown = ({ className }) => {
       </Dropdown>
     </div>
   );
-}
+};
 
 export default withHeaderItem(UserDropdown)

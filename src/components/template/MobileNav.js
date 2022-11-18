@@ -7,20 +7,13 @@ import {
 	DIR_RTL,
 } from 'constants/theme.constant'
 import withHeaderItem from 'utils/hoc/withHeaderItem'
-import { NavToggle } from 'components/shared'
-import navigationConfig from 'configs/navigation.config'
-import useResponsive from 'utils/hooks/useResponsive'
-import { useSelector } from 'react-redux'
+import { NavToggle } from "components/shared";
+import useResponsive from "utils/hooks/useResponsive";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { apiGetSalaries } from "services/SalariesServices";
-import {
-  getSalaryData,
-  setSalaryData,
-} from "views/sales/SalesDashboard/store/dataSlice";
+import { setSalaryData } from "views/sales/SalesDashboard/store/dataSlice";
 import { Button } from "components/ui";
-const VerticalMenuContent = lazy(() =>
-  import("components/template/VerticalMenuContent")
-);
 
 const MobileNavToggle = withHeaderItem(NavToggle);
 
@@ -43,13 +36,6 @@ const MobileNav = () => {
   const navMode = useSelector((state) => state.theme.navMode);
   const mode = useSelector((state) => state.theme.mode);
   const direction = useSelector((state) => state.theme.direction);
-  const currentRouteKey = useSelector(
-    (state) => state.base.common.currentRouteKey
-  );
-  const sideNavCollapse = useSelector(
-    (state) => state.theme.layout.sideNavCollapse
-  );
-  const userAuthority = useSelector((state) => state.auth.user.authority);
 
   const { smaller } = useResponsive();
 

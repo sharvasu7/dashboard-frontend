@@ -12,14 +12,9 @@ import {
   LOGO_X_GUTTER,
 } from "constants/theme.constant";
 import Logo from "components/template/Logo";
-import navigationConfig from "configs/navigation.config";
-import VerticalMenuContent from "components/template/VerticalMenuContent";
 import useResponsive from "utils/hooks/useResponsive";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getSalaryData,
-  setSalaryData,
-} from "views/sales/SalesDashboard/store/dataSlice";
+import { setSalaryData } from "views/sales/SalesDashboard/store/dataSlice";
 import { apiGetSalaries } from "services/SalariesServices";
 
 const sideNavStyle = {
@@ -41,14 +36,11 @@ const SideNav = () => {
   const navMode = useSelector((state) => state.theme.navMode);
   const mode = useSelector((state) => state.theme.mode);
   const direction = useSelector((state) => state.theme.direction);
-  const currentRouteKey = useSelector(
-    (state) => state.base.common.currentRouteKey
-  );
+
   const dispatch = useDispatch();
   const sideNavCollapse = useSelector(
     (state) => state.theme.layout.sideNavCollapse
   );
-  const userAuthority = useSelector((state) => state.auth.user.authority);
 
   const { larger } = useResponsive();
 
